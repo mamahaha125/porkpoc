@@ -15,9 +15,10 @@ PORKPOCS !!!
   -s, --singlepoc       single poc
 
 Example:
-        run.py -u example.com  -t pocs/Redis  -v           #verify
-        run.py -r url file     -t pocs/Redis  -a           #load file to get url
-        run.py -F api(FOFA...) -t pocs/Redis  -s           #get fofa api to get url
+        main.py -u example.com  -t pocs/Redis  -v           #verify
+        main.py -r url file     -t pocs/Redis  -a           #load file to get url
+        main.py -F api(FOFA...) -t pocs/Redis  -s           #get fofa api to get url
+        main.py -F api(FOFA...) -t pocs/Redis  -v -p payload.txt      #add payload
 ```
 
 ### 示例：
