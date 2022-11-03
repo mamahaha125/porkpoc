@@ -21,30 +21,19 @@ class PocBase(object):
         self.desc = getattr(self, 'desc', '')
         self.samples = getattr(self, 'samples', [])
         self.install_requires = getattr(self, 'install_requires', [])
-        self.dork = getattr(self, 'dork', {})
-        self.suricata_request = getattr(self, 'suricata_request', '')
-        self.suricata_response = getattr(self, 'suricata_response', '')
+        self.pocDesc = getattr(self, 'pocDesc', "")
 
     def _shell(self):
-        """
-        @function   以Poc的shell模式对urls进行检测(具有危险性)
-                    需要在用户自定义的Poc中进行重写
-        """
         raise NotImplementedError
 
     def _attack(self):
-        """
-        @function   以Poc的attack模式对urls进行检测(可能具有危险性)
-                    需要在用户自定义的Poc中进行重写
-        """
         raise NotImplementedError
 
     def _verify(self):
-        """
-        @function   以Poc的verify模式对urls进行检测(可能具有危险性)
-                    需要在用户自定义的Poc中进行重写
-        """
         raise NotImplementedError
+
+    def parse_detail(self):
+        return self.__dict__
 
 
 class Output_Result(object):

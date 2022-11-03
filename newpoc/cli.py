@@ -35,26 +35,40 @@ class NEWPOC:
         self.output.check("初始化配置中...")
         self.TARGET = conf
 
-        # poc路径获取
-        PATH.SCRIPT_PATH = os.path.join(PATH.ROOT_PATH, self.TARGET['poc'])
 
-        # 选择脚本远行方式，不填默认verify
-        self.TARGET['flag'] = "_shell" if conf['command'] else "_attack" \
-            if conf['attack'] else "_verify"
-
-        # 加载需要调度poc模块
         try:
+            # poc路径获取
+            PATH.SCRIPT_PATH = os.path.join(PATH.ROOT_PATH, self.TARGET['poc'])
+
+            # 选择脚本远行方式，不填默认verify
+            self.TARGET['flag'] = "_shell" if conf['command'] else "_attack" \
+                if conf['attack'] else "_verify"
+
+            # 加载payload
+            self.TARGET['payload'] = self.TARGET['payload'].read() if self.TARGET['payload'] else None
+
+            # 动态加载poc模块
+
             self.TARGET['poc_list'] = self.get_all_poc() if self.get_all_poc() else None
             self.TARGET['poc_models'] = [self.import_poc(poc) for poc in self.TARGET['poc_list']]
-        except KeyError and TypeError as err:  # TypeError as
-            self.output.error("请输入正确poc路径  pocs/.../...{}".format(err))
+
+
+
+            # 显示poc信息
+
+            if self.TARGET['pocdetail']:
+                self.poc_detail()
+        except TypeError as err:
+            self.output.error("请输入正确poc路径 -t pocs/.../...{}".format(err))
             os._exit(0)
-
     def show_result(self):
-        recv = ResultPOC().result_table(POC_QUEUE)
-        self.output.success(recv)
+        recv = ResultPOC()
+        res = recv.result_table(POC_QUEUE)
+        self.output.success(res)
+        recv.wirtedown()
 
-    def CtrlC(self):
+
+    def CtrlC(self,num ,*args):
         """
         如果用sys.exit()在上层有try的情况下达不到直接结束程序的效果
         :return:
@@ -97,7 +111,6 @@ class NEWPOC:
         :param tmp_files:
         :return:
         """
-        self.output.error(tmp_files)
         cms, poc_model = tmp_files
         cms = re.split(r'[/\\]', str(cms))[-1]
         poc_model = poc_model.replace('.py', '')
@@ -121,6 +134,16 @@ class NEWPOC:
         return [(str(Path(tmp_path).parent), os.path.basename(tmp_path)) for tmp_path in path.rglob('*.py') \
                 if "__init__" not in str(tmp_path)]
 
+    def poc_detail(self):
+        """
+        查看poc详细信息
+        """
+        try:
+            task_detail = [getattr(model.POC(), "parse_detail")() for model in self.TARGET['poc_models']]
+            report_poc = ResultPOC()
+            self.output.check(report_poc.poc_detail_table(task_detail))
+        except KeyboardInterrupt as err:
+            self.output.error(err)
 
 if __name__ == "__main__":
     s = NEWPOC()

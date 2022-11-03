@@ -5,28 +5,28 @@ from newpoc.api import re, requests, PocBase, Output
 
 
 class POC(PocBase):
-    vulID = "14444444"  # ssvid ID 如果是提交漏洞的同时提交 PoC,则写成 0
-    version = "1"  # 默认为1
-    author = "max"  # PoC作者的大名
-    vulDate = "2022-10-17"  # 漏洞公开的时间,不知道就写今天
-    createDate = "2022-10-17"  # 编写 PoC 的日期
-    updateDate = "2022-10-17"  # PoC 更新的时间,默认和编写时间一样
-    references = ["https://xxx.xx.com.cn"]  # 漏洞地址来源,0day不用写
-    name = "Flask jinja2"  # PoC 名称
-    appPowerLink = "https://www.drupal.org/"  # 漏洞厂商主页地址
-    appName = "Drupal"  # 漏洞应用名称
-    appVersion = "7.x"  # 漏洞影响版本
-    vulType = 'VUL_TYPE.UNAUTHORIZED_ACCESS'  # 漏洞类型,类型参考见 漏洞类型规范表
-    category = 'POC_CATEGORY.EXPLOITS.WEBAPP'
-    samples = []  # 测试样列,就是用 PoC 测试成功的网站
-    install_requires = []  # PoC 第三方模块依赖，请尽量不要使用第三方模块，必要时请参考《PoC第三方模块依赖说明》填写
-    desc = """
-            Drupal 在处理 IN 语句时，展开数组时 key 带入 SQL 语句导致 SQL 注入，
-            可以添加管理员、造成信息泄露。
-        """  # 漏洞简要描述
-    pocDesc = """
-            poc的用法描述
-        """  # POC用法描述
+    cnvd_cve = 'CNVD-2015-07557'            # 漏洞编号
+    version = '1'                           # 默认为1
+    author = 'myxae86'                      # PoC 作者名字
+    vulDate = '2021-08-28'                  # 漏洞公开的时间
+    createDate = '2021-08-28'               # 编写 PoC 的日期
+    updateDate = '2021-08-29'               # PoC 更新的时间，默认和编写时间一样
+    references = []                         # 漏洞地址来源
+    name = '通达OA远程命令执行'               # PoC 名称
+    appPowerLink = 'https://redis.io/'      # 漏洞厂商主页地址
+    appName = 'Redis'                       # 漏洞应用名称
+    appVersion = '4.x/5.0.5'                # 漏洞影响版本
+    vulType = 'Unauthorized Access'         # 漏洞类型
+    desc = '''
+        Redis默认情况下会绑定在0.0.0.0:6379，如果在没有开启认证的情况下，可以导致任意用户在可以访问目标服务器的情况下未授权访问Redis以及读取Redis的数据。
+        攻击者在未授权访问Redis的情况下可以利用Redis的相关方法，可以成功将自己的公钥写入目标服务器的 /root/.ssh 文件夹的authotrized_keys文件中，进而可以直接登录目标服务器。
+        *1
+        $4
+        info
+    '''  # 漏洞简要描述
+    samples = ['192.168.1.23']  # 测试样列，就是用 PoC 测试成功的网站
+    install_requires = ['redis']  # PoC 第三方模块依赖，请尽量不要使用第三方模块，必要时请参考《PoC第三方模块依赖说明》填写
+    pocDesc = "pocs/Tongda/tongda_rce.py"
     output = Output()
 
     def _verify(self, url):

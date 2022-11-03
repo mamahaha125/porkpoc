@@ -1,10 +1,9 @@
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 # -*- coding:utf-8 -*-
 
 
 from newpoc.api import argparse, textwrap
 from newpoc.cli import NEWPOC
-
 
 class Input:
     def __init__(self, arg):
@@ -23,6 +22,9 @@ class Input:
         # TODO fofa模块
         poc = NEWPOC()
         poc.init_options(self.arg.__dict__)
+
+        if self.arg.pocdetail:
+            pass
 
         if self.arg.url:
             poc.start_pool([self.arg.url])
@@ -52,7 +54,7 @@ def main():
     parse.add_argument('-p', '--payload', help='payload file', type=argparse.FileType('r'))
     parse.add_argument('-t', '--poc', help='choose poc nginx poc.py')
     parse.add_argument('-F', '--FOFA', action='store_true', help='fofa url')
-    parse.add_argument('-s', '--singlepoc', action='store_true', help='single poc')
+    parse.add_argument('-l', '--pocdetail', action='store_true', help='poc detail')
 
     args = parse.parse_args()
     Input(args).run_core()
@@ -60,3 +62,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+

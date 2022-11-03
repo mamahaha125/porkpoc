@@ -15,6 +15,8 @@ requests_delete = requests.delete
 User_Agent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36'
 Timeout = 6
 proxies_ip = ''
+
+
 # proxies_ip = '127.0.0.1:8888'
 
 def http(url_path: str, ssl=False) -> str:
@@ -32,10 +34,9 @@ def urljoin(host, rpath):
     host = http(host)
     url = parse_urljoin(host, rpath)
     return url
-    
+
 
 def hook_kwarg(arg, kwarg):
-
     # 给url类型添加http请求协议
     arg = list(arg)
     arg[0] = http(arg[0])
@@ -46,7 +47,7 @@ def hook_kwarg(arg, kwarg):
 
     if 'User-Agent' not in kwarg['headers']:
         kwarg['headers']['User-Agent'] = User_Agent
-    
+
     # 修改默认超时
     if 'timeout' not in kwarg:
         kwarg['timeout'] = Timeout
@@ -56,7 +57,7 @@ def hook_kwarg(arg, kwarg):
         kwarg['verify'] = False
 
     if proxies_ip:
-        kwarg['proxies'] = {"http": proxies_ip,"https": proxies_ip}
+        kwarg['proxies'] = {"http": proxies_ip, "https": proxies_ip}
 
     return arg, kwarg
 

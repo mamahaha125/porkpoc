@@ -2,22 +2,10 @@
 # -*- coding:utf-8 -*-
 import logging
 import threading
-
 import colorlog
 
 
-# def singleton(cls):
-#     instances = {}
-#     def _singleton(*args, **kwargs):
-#         if cls not in instances:
-#             instances[cls] = cls(*args, **kwargs)
-#         return instances[cls]
-#
-#     return _singleton
-#
-#
-# @singleton
-class Output(object):
+class Output:
     # 记录器
     logger = logging.getLogger('mama')
     logger.setLevel(logging.DEBUG)

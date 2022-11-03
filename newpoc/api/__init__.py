@@ -11,3 +11,4 @@ from newpoc.core.output import Output
 from newpoc.core.poc import PocBase
 from newpoc.core.hookrequests import requests, urljoin
 from newpoc.utils.dicter import Dicter
+import json

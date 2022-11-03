@@ -39,7 +39,12 @@ class Tongda:
         payload = [json.loads(pay)['id'] for pay in payload if '.edu' in json.loads(pay)['id']]
         return payload[500:550]
 
+    def nc(self):
+        payload = read_json('data/NC/用友.json')
+        payload = [json.loads(pay)['id'] for pay in payload if '.edu' in json.loads(pay)['id']]
+        return payload[500:550]
+
 
 A = Tongda()
-tmp = A.redis()
+tmp = A.nc()
 write(tmp)
