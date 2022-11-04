@@ -12,7 +12,7 @@ BOLD = '\033[1m'
 ENDC = '\033[0m'
 
 class POC(PocBase):
-    cnvd_cve = 'CNVD-2015-07557'            # 漏洞编号
+    cnvd_cve = 'CNVD-2021-06-27'            # 漏洞编号
     version = '1'                           # 默认为1
     author = 'myxae86'                      # PoC 作者名字
     vulDate = '2021-08-28'                  # 漏洞公开的时间
@@ -22,8 +22,8 @@ class POC(PocBase):
     name = '用友NC远程命令执行'               # PoC 名称
     appPowerLink = 'https://redis.io/'      # 漏洞厂商主页地址
     appName = 'Redis'                       # 漏洞应用名称
-    appVersion = '4.x/5.0.5'                # 漏洞影响版本
-    vulType = 'Unauthorized Access'         # 漏洞类型
+    appVersion = '4.5'                # 漏洞影响版本
+    vulType = 'RCE'         # 漏洞类型
     desc = '''
         Redis默认情况下会绑定在0.0.0.0:6379，如果在没有开启认证的情况下，可以导致任意用户在可以访问目标服务器的情况下未授权访问Redis以及读取Redis的数据。
         攻击者在未授权访问Redis的情况下可以利用Redis的相关方法，可以成功将自己的公钥写入目标服务器的 /root/.ssh 文件夹的authotrized_keys文件中，进而可以直接登录目标服务器。
