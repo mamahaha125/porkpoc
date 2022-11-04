@@ -7,7 +7,7 @@
 - **shell**（getshell）待实现...
 
 ```
-usage: test01.py [-h] [-c] [-v] [-a] [-u URL] [-r FILE] [-t POC] [-F] [-s]
+usage: main.py [-h] [-c] [-v] [-a] [-u URL] [-r FILE] [-t POC] [-F] [-s]
                                                                           
 PORKPOCS !!!                                                              
                                                                           
@@ -24,7 +24,7 @@ Example:
 ### 示例：
 
 ```
-python3 test01.py -r Redis.txt -t pocs/Redis -v
+python3 main.py -r Redis.txt -t pocs/Redis -v
 # -r *.txt 					批量导入url
 
 # -u example.com   			单个url
