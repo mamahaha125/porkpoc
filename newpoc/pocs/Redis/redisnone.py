@@ -11,7 +11,7 @@ class POC(PocBase):
     cnvd_cve = 'CNVD-2015-07557'  # 漏洞编号
     version = '1'  # 默认为1
     author = 'myxae86'  # PoC 作者名字
-    vulDate = '2021-08-28'  # 漏洞公开的时间
+    vulDate = '2015-11-17'  # 漏洞公开的时间
     createDate = '2021-08-28'  # 编写 PoC 的日期
     updateDate = '2021-08-29'  # PoC 更新的时间，默认和编写时间一样
     references = []  # 漏洞地址来源
