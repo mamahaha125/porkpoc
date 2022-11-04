@@ -5,17 +5,17 @@ from newpoc.api import PocBase, Output
 from newpoc.cli import POC_QUEUE
 
 class POC(PocBase):
-    cnvd_cve = 'CNVD-2015-07557'            # 漏洞编号
+    cnvd_cve = 'CVE-2015-7882'            # 漏洞编号
     version = '1'                           # 默认为1
     author = 'ganzhi'                       # PoC 作者名字
-    vulDate = '2021-08-28'                  # 漏洞公开的时间
+    vulDate = '2019-07-24'                  # 漏洞公开的时间
     createDate = '2021-08-28'               # 编写 PoC 的日期
     updateDate = '2021-08-29'               # PoC 更新的时间，默认和编写时间一样
     references = ["https://www.freebuf.com/vuls/212799.html"]                         # 漏洞地址来源
     name = 'MongoDB未授权访问漏洞'               # PoC 名称
     appPowerLink = 'https://www.mongodb.com/'      # 漏洞厂商主页地址
     appName = 'MongoDB'                       # 漏洞应用名称
-    appVersion = '3.0'                # 漏洞影响版本
+    appVersion = '3.0.0-3.0.6'                # 漏洞影响版本
     vulType = 'Unauthorized Access'         # 漏洞类型
     desc = '''
         MongoDB服务安装后，默认未开启权限验证。如果服务监听在0.0.0.0，并且启动MongoDB服务时不添加任何参数，则可远程无需授权访问数据库
