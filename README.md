@@ -6,19 +6,32 @@
 - **attack**（利用模块）
 - **shell**（getshell）待实现...
 
-```
-usage: main.py [-h] [-c] [-v] [-a] [-u URL] [-r FILE] [-t POC] [-F] [-s]
-                                                                          
-PORKPOCS !!!                                                              
-                                                                          
+```                                                            
+usage: main.py [-h] [-c] [-v] [-a] [-u URL] [-r FILE] [-p PAYLOAD] [-t POC]
+               [-F] [-l]
+
+PORKPOCS !!!
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c, --command         command shell
+  -v, --verify          verify
+  -a, --attack          attack
+  -u URL, --url URL     target url
+  -r FILE, --file FILE  url file
+  -p PAYLOAD, --payload PAYLOAD
+                        payload file
+  -t POC, --poc POC     choose poc nginx poc.py
   -F, --FOFA            fofa url
-  -s, --singlepoc       single poc
+  -l, --pocdetail       poc detail
 
 Example:
-        main.py -u example.com  -t pocs/Redis  -v           #verify
-        main.py -r url file     -t pocs/Redis  -a           #load file to get url
-        main.py -F api(FOFA...) -t pocs/Redis  -s           #get fofa api to get url
-        main.py -F api(FOFA...) -t pocs/Redis  -v -p payload.txt      #add payload
+        run.py -u example.com  -t pocs/Redis  -v              #verify
+        run.py -r url file     -t pocs/Redis  -a              #load file to get url
+        run.py -F api(FOFA...) -t pocs/Redis  -v              #get fofa api to get url
+        run.py -l -t pocs/Redis                               #get pocs detail
+        run.py -u example.com  -t pocs/Redis  -v              #verify
+        run.py -u example.com  -t pocs/Redis  -v              #add payload
 ```
 
 ### 示例：
