@@ -32,5 +32,8 @@ python3 main.py -r Redis.txt -t pocs/Redis -v
 # -v -a -c 					选择脚本利用模式
 
 # -t pocs/(选择全部poc)  pocs/Redis(选择一个poc模块) pocs/Redis/redisnone.py(选择单个poc)
+
+python3 main.py -r Redis.txt -l -t pocs                     #查看所有poc
+python3 main.py -r Redis.txt -l -t pocs/Redis               #查看单个poc模块
 ```
 
