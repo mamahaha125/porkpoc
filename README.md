@@ -21,9 +21,9 @@ optional arguments:
   -r FILE      --file FILE       url file
   -p PAYLOAD   --payload         PAYLOAD
   
-  -t POC, --poc POC     choose poc nginx poc.py
-  -F, --FOFA            fofa url
-  -l, --pocdetail       poc detail
+  -t POC       --poc POC     choose poc nginx poc.py
+  -F           --FOFA            fofa url
+  -l           --pocdetail       poc detail
 
 Example:
         main.py -u example.com  -t pocs/Redis  -v                            #verify
@@ -44,7 +44,7 @@ python3 main.py -r Redis.txt -t pocs/Redis -v
 
 # -v -a -c 					    选择脚本利用模式
 
-# -t pocs/(选择全部poc)  pocs/Redis(选择一个poc模块) pocs/Redis/redisnone.py(选择单个poc)
+# -t pocs/(选择全部poc)  pocs/Redis #选择一个poc模块 pocs/Redis/redisnone.py #选择单个poc
 
 python3 main.py -l -t pocs                     #查看所有poc
 python3 main.py -l -t pocs/Redis               #查看单个poc模块
