@@ -63,9 +63,3 @@ class Dicter(OrderedDict):
             return
         self[key] = val
 
-
-# d = Dicter()
-# # d = {'ff': 1}
-# d= {'a': {'SS': 's'}}
-# # d['c'] = 'CC'
-# print(d.a)
