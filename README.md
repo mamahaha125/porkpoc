@@ -26,23 +26,23 @@ optional arguments:
   -l, --pocdetail       poc detail
 
 Example:
-        run.py -u example.com  -t pocs/Redis  -v              #verify
-        run.py -r url file     -t pocs/Redis  -a              #load file to get url
-        run.py -F api(FOFA...) -t pocs/Redis  -v              #get fofa api to get url
-        run.py -l -t pocs/Redis                               #get pocs detail
-        run.py -u example.com  -t pocs/Redis  -v              #verify
-        run.py -u example.com  -t pocs/Redis  -v              #add payload
+        main.py -u example.com  -t pocs/Redis  -v              #verify
+        main.py -r url file     -t pocs/Redis  -a              #load file to get url
+        main.py -F api(FOFA...) -t pocs/Redis  -v              #get fofa api to get url
+        main.py -l -t pocs/Redis                               #get pocs detail
+        main.py -u example.com  -t pocs/Redis  -v              #verify
+        main.py -u example.com  -t pocs/Redis  -v              #add payload
 ```
 
 ### 示例：
 
 ```
 python3 main.py -r Redis.txt -t pocs/Redis -v
-# -r *.txt 					批量导入url
+# -r *.txt 					    批量导入url
 
 # -u example.com   			单个url
 
-# -v -a -c 					选择脚本利用模式
+# -v -a -c 					    选择脚本利用模式
 
 # -t pocs/(选择全部poc)  pocs/Redis(选择一个poc模块) pocs/Redis/redisnone.py(选择单个poc)
 
