@@ -13,25 +13,25 @@ usage: main.py [-h] [-c] [-v] [-a] [-u URL] [-r FILE] [-p PAYLOAD] [-t POC]
 PORKPOCS !!!
 
 optional arguments:
-  -h, --help            show this help message and exit
-  -c, --command         command shell
-  -v, --verify          verify
-  -a, --attack          attack
-  -u URL, --url URL     target url
-  -r FILE, --file FILE  url file
-  -p PAYLOAD, --payload PAYLOAD
-                        payload file
+  -h           --help            show this help message and exit
+  -c           --command         command shell
+  -v           --verify          verify
+  -a           --attack          attack
+  -u URL       --url URL         target url
+  -r FILE      --file FILE       url file
+  -p PAYLOAD   --payload         PAYLOAD
+  
   -t POC, --poc POC     choose poc nginx poc.py
   -F, --FOFA            fofa url
   -l, --pocdetail       poc detail
 
 Example:
-        main.py -u example.com  -t pocs/Redis  -v              #verify
-        main.py -r url file     -t pocs/Redis  -a              #load file to get url
-        main.py -F api(FOFA...) -t pocs/Redis  -v              #get fofa api to get url
-        main.py -l -t pocs/Redis                               #get pocs detail
-        main.py -u example.com  -t pocs/Redis  -v              #verify
-        main.py -u example.com  -t pocs/Redis  -v              #add payload
+        main.py -u example.com  -t pocs/Redis  -v                            #verify
+        main.py -r url file     -t pocs/Redis  -a                            #load file to get url
+        main.py -F api(FOFA...) -t pocs/Redis  -v                            #get fofa api to get url
+        main.py -l -t pocs/Redis                                             #get pocs detail
+        main.py -u example.com  -t pocs/Redis  -v                            #verify
+        main.py -u example.com  -t pocs/Redis  -v -p payload.txt             #add payload
 ```
 
 ### 示例：
