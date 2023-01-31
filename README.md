@@ -1,5 +1,4 @@
 # porkpoc
-[![Security Status](https://www.murphysec.com/platform3/v3/badge/1617768457576165376.svg?t=1)](https://www.murphysec.com/accept?code=f76cf2003ea507fcf1fe2c501ef067b4&type=1&from=2&t=2)
 ### 仅供学习交流，禁止使用该工具进行非法的渗透测试！！！
 ### 支持三种模式：
 - **verify**(验证模块)
@@ -49,4 +48,4 @@ python3 main.py -r Redis.txt -t pocs/Redis -v
 python3 main.py -l -t pocs                     #查看所有poc
 python3 main.py -l -t pocs/Redis               #查看单个poc模块
 ```
-
+[![Security Status](https://www.murphysec.com/platform3/v3/badge/1617768457576165376.svg?t=1)](https://www.murphysec.com/accept?code=f76cf2003ea507fcf1fe2c501ef067b4&type=1&from=2&t=2)
